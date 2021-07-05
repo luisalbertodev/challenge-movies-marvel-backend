@@ -12,6 +12,7 @@
      "no-console": false,
      "member-access": false,
      "import-name": false,
+     "prefer-template": false,
      "object-shorthand-properties-first": false,
      "trailing-comma": false,
      "no-boolean-literal-compare": false,
