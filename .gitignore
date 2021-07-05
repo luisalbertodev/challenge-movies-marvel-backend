@@ -1,0 +1,6 @@
+# dependences
+node_modules
+
+# yarn or npm
+yarn.lock
+package-lock.json
