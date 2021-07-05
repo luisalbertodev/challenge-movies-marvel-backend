@@ -16,6 +16,7 @@
 		"dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
 		"build": "tsc -p . && cp -R src/templates ./build",
 		"prepare": "husky install",
+		"docs": "jsdoc -c jsdoc.json",
 		"lint": "eslint -c .eslintrc.js --ext .ts ./build"
 	},
 	"dependencies": {
@@ -23,6 +24,7 @@
 		"bcryptjs": "^2.4.3",
 		"cors": "^2.8.5",
 		"crypto": "^1.0.1",
+		"docdash": "^1.2.0",
 		"dotenv": "^10.0.0",
 		"express": "^4.17.1",
 		"express-joi-validation": "^5.0.0",
