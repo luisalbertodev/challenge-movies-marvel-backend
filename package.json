@@ -16,7 +16,6 @@
 		"dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
 		"build": "tsc -p . && cp -R src/templates ./build",
 		"prepare": "husky install",
-		"docs": "jsdoc -c jsdoc.json",
 		"lint": "eslint -c .eslintrc.js --ext .ts ./build"
 	},
 	"dependencies": {
