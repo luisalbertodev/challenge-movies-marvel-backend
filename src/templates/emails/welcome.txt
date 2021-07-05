@@ -1,0 +1,2 @@
+Welcome {{ name }}!
+Verify account with next link -> {{url}}
