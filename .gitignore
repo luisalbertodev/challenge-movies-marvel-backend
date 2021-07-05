@@ -1,6 +1,8 @@
 # dependences
 node_modules
+build
 
 # yarn or npm
+.log*
 yarn.lock
 package-lock.json
