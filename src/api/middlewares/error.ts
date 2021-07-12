@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import * as expressValidation from 'express-validation';
 import { HttpStatusCode, ErrorType } from '@typesProject/http';
 import APIError from '@api/utils/APIError';
 import env from '@env';
@@ -31,14 +30,7 @@ export const handler = (err: ErrorType, req: Request, res: Response, next: NextF
 export const converter = (err: ErrorType, req: Request, res: Response, next: NextFunction) => {
   let convertedError: ErrorType | any = err;
 
-  if ((err instanceof expressValidation.ValidationError) as any) {
-    convertedError = new APIError({
-      message: 'Validation Error',
-      errors: err.errors,
-      status: err.status,
-      stack: err.stack
-    });
-  } else if (!(err instanceof APIError)) {
+  if (!(err instanceof APIError)) {
     convertedError = new APIError({
       message: err.message,
       status: err.status,
