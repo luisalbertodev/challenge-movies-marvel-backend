@@ -1,15 +1,12 @@
 import { Router } from 'express';
-import authRoutes from './auth.route';
-import userRoutes from './user.route';
+import movieRoutes from './movie.route';
 
 const router = Router();
 
 /**
- * Service v1/auth
- * Service v1/user
+ * Service v1/movie
  */
 
-router.use('/auth', authRoutes);
-router.use('/user', userRoutes);
+router.use('/movie', movieRoutes);
 
 export default router;
