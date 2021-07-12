@@ -1,4 +1,4 @@
-import express, { Application, Response, NextFunction } from 'express';
+import express, { Application } from 'express';
 import morgan from 'morgan';
 import methodOverride from 'method-override';
 import cors from 'cors';
@@ -6,14 +6,16 @@ import helmet from 'helmet';
 import env from '@env';
 import routes from '@api/routes/v1';
 import * as error from '@api/middlewares/error';
-// const strategies = require('./passport');
-// const passport = require('passport');
+import { connect } from '@api/config/database';
 
 /**
  * Express instance
  * @public
  */
 const app: Application = express();
+
+// Starting server of mongoDB
+connect();
 
 // request logging. dev: console | production: file
 app.use(morgan(env.logs));
@@ -31,17 +33,6 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
-
-app.use((req: any, res: Response, next: NextFunction) => {
-  req.uuid = `uuid_${Math.random()}`; // use "uuid" lib
-  next();
-});
-
-// enable authentication
-// app.use(passport.initialize());
-// passport.use('jwt', strategies.jwt);
-// passport.use('facebook', strategies.facebook);
-// passport.use('google', strategies.google);
 
 // mount api v1 routes
 app.use('/api/v1', routes);
